@@ -105,6 +105,57 @@ a {
   padding: 1.15rem;
 }
 
+.coming-hero {
+  margin-top: 2.8rem;
+  text-align: center;
+  padding: 3.2rem 1.2rem;
+  background:
+    linear-gradient(130deg, rgba(255, 255, 255, 0.06), transparent 35%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.02),
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px,
+      transparent 6px
+    ),
+    color-mix(in srgb, var(--mono-bg-soft) 90%, black 10%);
+}
+
+.coming-hero .eyebrow {
+  margin: 0;
+  letter-spacing: 0.16em;
+  font-size: 0.8rem;
+  color: var(--mono-muted);
+}
+
+.coming-hero h1 {
+  margin: 0.45rem 0 0;
+  font-size: clamp(2rem, 7vw, 4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.2);
+}
+
+.coming-hero .lead {
+  margin: 0.8rem auto 0;
+  max-width: 40ch;
+}
+
+.coming-hero .tagline {
+  margin: 1rem 0 0;
+  font-size: 1.1rem;
+}
+
+.coming-hero .status {
+  margin: 1.2rem auto 0;
+  width: fit-content;
+  border: 1px solid #666;
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.9rem;
+  color: #dcdcdc;
+}
+
 h1,
 h2,
 h3 {

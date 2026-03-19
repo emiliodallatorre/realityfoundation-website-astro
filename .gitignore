@@ -1,10 +1,19 @@
-# Created by https://www.toptal.com/developers/gitignore/api/astro,visualstudiocode,webstorm,node,macos
-# Edit at https://www.toptal.com/developers/gitignore?templates=astro,visualstudiocode,webstorm,node,macos
+# Created by https://www.toptal.com/developers/gitignore/api/node,astro,macos,webstorm,visualstudiocode,firebase
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,astro,macos,webstorm,visualstudiocode,firebase
 
 ### Astro ###
 # Gitignore template for Astro projects
 # Ignore content collection generated files
 .astro
+
+### Firebase ###
+.idea
+**/node_modules/*
+**/.firebaserc
+
+### Firebase Patch ###
+.runtimeconfig.json
+.firebase/
 
 ### macOS ###
 # General
@@ -311,4 +320,4 @@ fabric.properties
 # https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij
 .idea/**/azureSettings.xml
 
-# End of https://www.toptal.com/developers/gitignore/api/astro,visualstudiocode,webstorm,node,macos
+# End of https://www.toptal.com/developers/gitignore/api/node,astro,macos,webstorm,visualstudiocode,firebase

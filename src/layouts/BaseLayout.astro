@@ -3,7 +3,7 @@ import "../styles/monolume.css";
 
 interface Props {
   title: string;
-  active: "home" | "team" | "manifesto" | "careers";
+  active: "home" | "team" | "manifesto" | "careers" | "coming-soon";
 }
 
 const { title, active } = Astro.props;
@@ -24,10 +24,7 @@ const { title, active } = Astro.props;
         <div class="site-header-inner">
           <a class="brand" href="/">Reality Foundation</a>
           <nav class="main-nav" aria-label="Main navigation">
-            <a href="/" class={active === "home" ? "active" : ""}>Home</a>
-            <a href="/team" class={active === "team" ? "active" : ""}>Team</a>
-            <a href="/manifesto" class={active === "manifesto" ? "active" : ""}>Manifesto</a>
-            <a href="/careers" class={active === "careers" ? "active" : ""}>Careers</a>
+            <!-- <a href="/" class={active === "home" ? "active" : ""}>Coming Soon</a> -->
           </nav>
         </div>
       </header>
@@ -37,7 +34,7 @@ const { title, active } = Astro.props;
       </main>
 
       <footer class="site-footer">
-        <div class="site-footer-inner">Monolume theme • realityfoundation.eu</div>
+        <div class="site-footer-inner">realityfoundation.eu</div>
       </footer>
     </div>
   </body>
