@@ -1,0 +1,7 @@
+.layout-aside {
+    padding-top: 16px;
+}
+
+section[id] {
+    scroll-margin-top: 16px;
+}
