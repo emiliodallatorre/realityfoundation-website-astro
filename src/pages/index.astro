@@ -2,14 +2,131 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Home | Reality Foundation" active="home">
-  <section class="panel coming-hero">
-    <p class="eyebrow">REALITY FOUNDATION</p>
-    <h1>Reality Check</h1>
-    <p class="muted lead">
-      Reality is becoming hard to prove. We are building a trust layer for visual truth.
+<BaseLayout title="Reality Foundation" active="home">
+
+  <!-- Hero -->
+  <section class="hero">
+    <p class="hero-eyebrow">Reality Foundation</p>
+    <h1>Research for a verifiable world</h1>
+    <p class="hero-lead">
+      We study the boundaries between authentic and synthetic media — and build the academic infrastructure to defend them.
+      Our work underpins the tools, policies, and standards needed to restore trust in visual evidence.
     </p>
-    <p class="tagline">The web is synthetic. Evidence should not be.</p>
-    <p class="status">Coming soon.</p>
+    <div class="hero-actions">
+      <a href="/research" class="btn btn-primary">Explore research</a>
+      <a href="/about" class="btn">About the foundation</a>
+    </div>
   </section>
+
+  <!-- Stats -->
+  <div class="stat-row">
+    <div class="stat-item">
+      <span class="stat-value">2025</span>
+      <span class="stat-label">Founded</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value">4</span>
+      <span class="stat-label">Research themes</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value">3</span>
+      <span class="stat-label">Founding members</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value">EU</span>
+      <span class="stat-label">Based in Europe</span>
+    </div>
+  </div>
+
+  <!-- Why it matters -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Why this work matters</h2>
+      <p>The proliferation of generative AI has made it trivially easy to fabricate images, documents, and video. Legal systems, journalism, and democratic processes depend on the integrity of evidence — a dependency that is now under attack.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <p class="card-eyebrow">The Problem</p>
+        <h3>Visual truth is eroding</h3>
+        <p>Deepfakes, synthetic media, and AI-generated imagery are indistinguishable from authentic records. Courts, journalists, and ordinary people have no reliable mechanism to verify what they see.</p>
+      </div>
+      <div class="card">
+        <p class="card-eyebrow">The Gap</p>
+        <h3>No academic anchor</h3>
+        <p>Industry-led detection tools exist, but they lack independent verification, peer review, and the permanence required for legal or archival use. Independent academic research is missing.</p>
+      </div>
+      <div class="card">
+        <p class="card-eyebrow">Our Response</p>
+        <h3>Blockchain-anchored provenance</h3>
+        <p>We research cryptographic timestamping, NFT-based provenance records, and immutable ledger architectures as tools to establish unambiguous chains of authenticity.</p>
+      </div>
+      <div class="card">
+        <p class="card-eyebrow">Long term</p>
+        <h3>Academic validation layer</h3>
+        <p>Reality Foundation will serve as the independent scientific counterpart to RealityCheck — providing peer-reviewed methodology, published datasets, and policy recommendations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research themes -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Research themes</h2>
+      <p>Four interlocking areas that together address the challenge of maintaining verifiable reality.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <p class="card-eyebrow">Theme 01</p>
+        <h3>Proof of Reality</h3>
+        <p>Defining what cryptographic and physical evidence constitutes proof that a digital asset was captured, not generated.</p>
+        <div class="card-footer">
+          <span class="tag">Cryptography</span>
+          <span class="tag">Standards</span>
+        </div>
+      </div>
+      <div class="card">
+        <p class="card-eyebrow">Theme 02</p>
+        <h3>NFT Timestamping</h3>
+        <p>Evaluating blockchain-based timestamp mechanisms for evidentiary integrity across legal and journalistic contexts.</p>
+        <div class="card-footer">
+          <span class="tag">Blockchain</span>
+          <span class="tag">Legal</span>
+        </div>
+      </div>
+      <div class="card">
+        <p class="card-eyebrow">Theme 03</p>
+        <h3>Insurance Fraud Detection</h3>
+        <p>Studying how manipulated imagery enters insurance claims processes and how provenance records can prevent it.</p>
+        <div class="card-footer">
+          <span class="tag">Applied</span>
+          <span class="tag">Insurance</span>
+        </div>
+      </div>
+      <div class="card">
+        <p class="card-eyebrow">Theme 04</p>
+        <h3>Deepfake Forensics</h3>
+        <p>Developing open methodologies for detecting and attributing synthetic media at a forensic standard of rigor.</p>
+        <div class="card-footer">
+          <span class="tag">Forensics</span>
+          <span class="tag">AI</span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: var(--space-6)">
+      <a href="/research" class="btn">View all research themes &rarr;</a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="panel" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--space-6); padding: 2rem 2.5rem;">
+      <div>
+        <p class="eyebrow">Get Involved</p>
+        <h2 style="font-size:var(--text-lg); letter-spacing:0.04em; text-transform:uppercase; margin-bottom:var(--space-2);">Researchers, policymakers, journalists</h2>
+        <p style="color:var(--mono-muted); font-size:var(--text-sm); max-width:46ch;">We are building a multidisciplinary research community. There is a role for every background.</p>
+      </div>
+      <a href="/get-involved" class="btn btn-primary" style="white-space:nowrap">See how to contribute</a>
+    </div>
+  </section>
+
 </BaseLayout>

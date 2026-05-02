@@ -1,0 +1,100 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="About | Reality Foundation" active="about">
+
+  <div class="page-header">
+    <p class="eyebrow">About</p>
+    <h1>Reality Foundation</h1>
+    <p>An independent European research foundation dedicated to the study of digital authenticity, synthetic media, and the academic frameworks needed to preserve verifiable reality.</p>
+  </div>
+
+  <div class="layout-aside">
+    <nav class="aside-sticky aside-nav" aria-label="Page sections">
+      <a href="#mission" class="active">Mission</a>
+      <a href="#values">Values</a>
+      <a href="#structure">Structure</a>
+      <a href="#team">Team</a>
+      <a href="#realitycheck">RealityCheck</a>
+    </nav>
+
+    <div>
+      <section id="mission" class="section">
+        <h2 style="font-size:var(--text-lg); letter-spacing:0.04em; text-transform:uppercase; margin-bottom:var(--space-6);">Mission</h2>
+        <div class="prose">
+          <p>Reality Foundation exists to produce independent, peer-reviewed research at the intersection of digital media, cryptography, and legal evidence. We believe that the integrity of visual records is a public good — and that it is currently undefended.</p>
+          <p>Generative AI has broken the naive assumption that images are evidence. Deepfakes have moved from novelty to threat. Insurance fraud, judicial proceedings, news verification, and historical archives are all affected. <strong>No independent academic institution has made this its primary focus.</strong> We do.</p>
+          <p>Our research informs tooling, policy, and standards. Our publications are open access. Our methods are open source wherever possible. We collaborate with universities, regulators, and civil society organisations across Europe and beyond.</p>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <section id="values" class="section">
+        <h2 style="font-size:var(--text-lg); letter-spacing:0.04em; text-transform:uppercase; margin-bottom:var(--space-6);">Values</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Independence</h3>
+            <p>We do not accept funding from organisations with a commercial interest in our findings. Our conclusions are our own.</p>
+          </div>
+          <div class="card">
+            <h3>Openness</h3>
+            <p>Research outputs are published open access. Datasets and methodologies are shared with the scientific community.</p>
+          </div>
+          <div class="card">
+            <h3>Rigour</h3>
+            <p>We hold ourselves to the standards of peer review, reproducibility, and transparent methodology in all published work.</p>
+          </div>
+          <div class="card">
+            <h3>Impact</h3>
+            <p>Academic work must reach decision-makers. We actively translate research into policy briefs, public explainers, and practical tools.</p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <section id="structure" class="section">
+        <h2 style="font-size:var(--text-lg); letter-spacing:0.04em; text-transform:uppercase; margin-bottom:var(--space-6);">Structure</h2>
+        <div class="prose">
+          <p>Reality Foundation is incorporated as an independent non-profit foundation under European law. It is governed by a <strong>Scientific Committee</strong> responsible for research direction and publication standards, and a <strong>Board of Directors</strong> responsible for governance and strategic decisions.</p>
+          <p>The Scientific Committee includes external academic advisors from computer science, law, and media studies. Membership criteria, conflict-of-interest policies, and committee minutes will be published on this site as the governance structure matures.</p>
+          <h2>Scientific Committee</h2>
+          <p>The Scientific Committee is being formed. If you are a researcher whose work intersects with digital authenticity, synthetic media detection, cryptographic provenance, or media law and you are interested in joining, please <a href="/get-involved">get in touch</a>.</p>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <section id="team" class="section">
+        <h2 style="font-size:var(--text-lg); letter-spacing:0.04em; text-transform:uppercase; margin-bottom:var(--space-6);">Founding Team</h2>
+        <div class="grid-2">
+          <div class="card">
+            <p class="card-eyebrow">Co-founder</p>
+            <h3>Emilio Dalla Torre</h3>
+            <p>Researcher and engineer. Leads technical architecture and research direction. Previously focused on distributed systems and mobile platforms.</p>
+          </div>
+          <div class="card" style="border-style:dashed; opacity:0.6">
+            <p class="card-eyebrow">Open position</p>
+            <h3>Research Lead</h3>
+            <p>We are looking for an academic co-founder with a background in computer vision, forensic media analysis, or cryptography to lead the scientific programme.</p>
+            <div class="card-footer"><a href="/get-involved" class="btn btn-primary">Express interest</a></div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <section id="realitycheck" class="section">
+        <h2 style="font-size:var(--text-lg); letter-spacing:0.04em; text-transform:uppercase; margin-bottom:var(--space-6);">Relationship with RealityCheck</h2>
+        <div class="prose">
+          <p>RealityCheck is a consumer and professional application that allows users to capture images and store cryptographic proofs on the blockchain, establishing authenticity at the moment of capture. Reality Foundation is its independent academic counterpart.</p>
+          <p><strong>The Foundation does not develop or commercialise the RealityCheck product.</strong> Its role is to provide independent scientific validation of the methods used, publish the underlying research, and ensure that the standards employed are defensible in legal and academic contexts.</p>
+          <p>This separation is intentional. Users, regulators, and courts should be able to rely on Foundation research precisely because it is not produced by the company that benefits commercially from its findings.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+</BaseLayout>
