@@ -15,11 +15,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   <div class="layout-aside">
     <nav class="aside-sticky aside-nav" aria-label="Page sections">
-      <a href="#mission" class="active">Mission</a>
-      <a href="#values">Values</a>
-      <a href="#structure">Structure</a>
-      <a href="#team">Team</a>
-      <a href="#realitycheck">RealityCheck</a>
+      <a href="#mission" class="nav-link active">Mission</a>
+      <a href="#values" class="nav-link">Values</a>
+      <a href="#structure" class="nav-link">Structure</a>
+      <a href="#team" class="nav-link">Team</a>
+      <!-- <a href="#realitycheck" class="nav-link">RealityCheck</a> -->
     </nav>
 
     <div>
@@ -143,28 +143,31 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <div class="card">
             <p class="card-eyebrow">Co-founder</p>
             <h3>Emilio Dalla Torre</h3>
+            <p style="font-size: var(--text-xs); color: var(--mono-muted); margin-bottom: var(--space-3); font-weight: 700; letter-spacing: 0.04em;">Technology Lead</p>
             <p>
-              Researcher and engineer. Leads technical architecture and research
-              direction. Previously focused on distributed systems and mobile
-              platforms.
+              Emilio holds a background in Engineering Physics and is completing a Double Degree Master in HPC Engineering and ICT Innovation at Politecnico di Milano and KTH Royal Institute of Technology. He has worked across full-stack engineering, AI systems, and large-scale infrastructure at PwC, Accenture, and Qualcomm. He leads RealityFoundation's technical research agenda and systems architecture.
             </p>
           </div>
-          <div class="card" style="border-style:dashed; opacity:0.6">
-            <p class="card-eyebrow">Open position</p>
-            <h3>Research Lead</h3>
+          <div class="card">
+            <p class="card-eyebrow">Co-founder</p>
+            <h3>Bianca Illing</h3>
+            <p style="font-size: var(--text-xs); color: var(--mono-muted); margin-bottom: var(--space-3); font-weight: 700; letter-spacing: 0.04em;">Research Lead</p>
             <p>
-              We are looking for an academic co-founder with a background in
-              computer vision, forensic media analysis, or cryptography to lead
-              the scientific programme.
+              Bianca holds an MSc in Economics from Nova SBE and a BSc in Business Administration from ESCP. She has worked in strategy consulting and is currently Founder's Associate at greenmetrics.ai, where she focuses on AI applications for climate resilience. She leads RealityFoundation's research programme and academic partnerships.
             </p>
-            <div class="card-footer">
-              <a href="/get-involved" class="btn btn-primary"
-                >Express interest</a>
-            </div>
+          </div>
+          <div class="card">
+            <p class="card-eyebrow">Co-founder</p>
+            <h3>Gaia Dalla Zonca</h3>
+            <p style="font-size: var(--text-xs); color: var(--mono-muted); margin-bottom: var(--space-3); font-weight: 700; letter-spacing: 0.04em;">Operations Lead</p>
+            <p>
+              Gaia holds a CEMS Master in International Management from Nova SBE and FGV-EAESP, and a Bachelor in International Politics and Government from Bocconi University. She currently works at EY. She leads RealityFoundation's operations, governance, and institutional relationships.
+            </p>
           </div>
         </div>
       </section>
 
+      <!--
       <hr class="divider" />
 
       <section id="realitycheck" class="section">
@@ -196,6 +199,29 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </p>
         </div>
       </section>
+      -->
+      
     </div>
   </div>
+
+  <script>
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id]');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach((link) => link.classList.remove('active'));
+          const activeLink = document.querySelector(
+            `.nav-link[href="#${entry.target.id}"]`
+          );
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      });
+    }, { threshold: 0.3 });
+
+    sections.forEach((section) => observer.observe(section));
+  </script>
 </BaseLayout>
