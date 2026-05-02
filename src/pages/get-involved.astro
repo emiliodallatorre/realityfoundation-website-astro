@@ -1,175 +1,195 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import Layout from "@/layouts/Layout.astro";
+import { SITE } from "@/consts";
 ---
 
-<BaseLayout title="Get Involved | RealityFoundation" active="get-involved">
-  <div class="pb-8 border-b mb-10" style="border-color: var(--color-line);">
-    <p class="mb-3 text-xs font-semibold uppercase tracking-widest" style="color: var(--color-muted);">Get Involved</p>
-    <h1>Join the effort</h1>
-    <p>
-      RealityFoundation is a small team with a large research agenda. We need
-      collaborators, advisors, and contributors from across academia, industry,
-      law, and journalism. Here is how different people can plug in.
-    </p>
-  </div>
+<Layout title="Get Involved | RealityFoundation" description="Join us in advancing research on AI-generated counterfeits and media authenticity. Multiple ways to contribute.">
+    <div class="container mx-auto px-6 pt-18">
+        <div class="space-y-20 py-12">
+            <!-- Hero Section -->
+            <section class="space-y-6">
+                <h1 class="heading text-4xl md:text-6xl uppercase">Get involved</h1>
+                <div class="max-w-3xl space-y-4">
+                    <p class="text-lg leading-relaxed text-secondary">
+                        RealityFoundation is in its founding phase. We are actively building the team,
+                        the research programme, and the network of partners that will define the
+                        foundation's first years. There are multiple ways to contribute, depending on
+                        who you are and what you bring.
+                    </p>
+                </div>
+            </section>
 
-  <!-- Audience cards -->
-  <section class="mb-16">
-    <div class="grid gap-4" style="grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr));">
-      <div class="border rounded-lg p-8 flex flex-col gap-4" style="border-color: var(--color-line); background: color-mix(in srgb, var(--color-background-soft) 90%, black 10%);">
-        <p class="mb-3 text-xs font-semibold uppercase tracking-widest" style="color: var(--color-muted);">For researchers</p>
-        <h3>Academic collaboration</h3>
-        <p style="color:var(--mono-muted); font-size:var(--text-sm);">
-          We are actively seeking co-researchers and advisors across computer
-          vision, cryptography, media law, and forensic science. We offer:
-        </p>
-        <ul>
-          <li>Co-authorship on working papers and journal submissions</li>
-          <li>Access to the Foundation's datasets and tooling</li>
-          <li>Visiting researcher arrangements</li>
-          <li>Scientific Committee membership for senior academics</li>
-        </ul>
-        <a href="mailto:research@realityfoundation.eu" class="btn btn-primary"
-          >Contact the research team</a
-        >
-      </div>
+            <!-- Audience Segments Grid -->
+            <section class="space-y-8 border-t border-secondary pt-12">
+                <h2 class="heading text-4xl uppercase mb-12">How you can contribute</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Researchers and Doctoral Students -->
+                    <div class="border border-secondary p-8 rounded-lg hover:border-primary transition space-y-4">
+                        <h3 class="heading text-xl uppercase text-primary">Researchers & doctoral students</h3>
+                        <p class="text-sm leading-relaxed text-secondary">
+                            We offer researchers the opportunity to publish under the RealityFoundation
+                            umbrella, with editorial support, cross-citation within a growing body of
+                            work, and visibility with policymakers and institutions who follow our outputs.
+                        </p>
+                        <p class="text-sm leading-relaxed text-secondary">
+                            If you are working on a thesis or research project related to fake detection,
+                            synthetic media, AI governance, or media integrity, we would like to discuss
+                            how we can support your work.
+                        </p>
+                        <a
+                            href="/contact"
+                            class="inline-block text-primary font-semibold uppercase text-xs hover:underline"
+                        >
+                            Contact us about research opportunities →
+                        </a>
+                    </div>
 
-      <div class="border rounded-lg p-8 flex flex-col gap-4" style="border-color: var(--color-line); background: color-mix(in srgb, var(--color-background-soft) 90%, black 10%);">
-        <p class="mb-3 text-xs font-semibold uppercase tracking-widest" style="color: var(--color-muted);">For students</p>
-        <h3>Thesis & internship</h3>
-        <p style="color:var(--mono-muted); font-size:var(--text-sm);">
-          We work with MSc and PhD candidates whose dissertations touch on our
-          research themes. We can provide:
-        </p>
-        <ul>
-          <li>Supervision co-arrangements with your home institution</li>
-          <li>Access to research data and literature resources</li>
-          <li>Mentorship from Foundation researchers</li>
-          <li>
-            A channel to publish thesis-derived work as Foundation outputs
-          </li>
-        </ul>
-        <a href="mailto:students@realityfoundation.eu" class="btn btn-primary"
-          >Enquire about student programmes</a
-        >
-      </div>
+                    <!-- Professors and Academic Supervisors -->
+                    <div class="border border-secondary p-8 rounded-lg hover:border-primary transition space-y-4">
+                        <h3 class="heading text-xl uppercase text-primary">Professors & academic supervisors</h3>
+                        <p class="text-sm leading-relaxed text-secondary">
+                            We are forming our Scientific Committee and building a network of academic
+                            advisors. Involvement offers the opportunity to shape a research agenda at
+                            the intersection of computer vision, AI ethics, digital forensics, and public policy.
+                        </p>
+                        <p class="text-sm leading-relaxed text-secondary">
+                            We can offer positions on the Scientific Committee, co-supervision arrangements
+                            for thesis students, and a growing platform for research influence.
+                        </p>
+                        <a
+                            href="/contact"
+                            class="inline-block text-primary font-semibold uppercase text-xs hover:underline"
+                        >
+                            Contact us about academic collaboration →
+                        </a>
+                    </div>
 
-      <div class="border rounded-lg p-8 flex flex-col gap-4" style="border-color: var(--color-line); background: color-mix(in srgb, var(--color-background-soft) 90%, black 10%);">
-        <p class="mb-3 text-xs font-semibold uppercase tracking-widest" style="color: var(--color-muted);">For policymakers</p>
-        <h3>Policy engagement</h3>
-        <p style="color:var(--mono-muted); font-size:var(--text-sm);">
-          We produce policy-facing outputs and welcome dialogue with regulators,
-          legislators, and standards bodies. We can offer:
-        </p>
-        <ul>
-          <li>Policy briefs on specific regulatory questions</li>
-          <li>Expert input to consultations and working groups</li>
-          <li>Evidence submissions to parliamentary inquiries</li>
-          <li>Briefings for parliamentary and regulatory staff</li>
-        </ul>
-        <a href="mailto:policy@realityfoundation.eu" class="btn btn-primary"
-          >Contact the policy team</a
-        >
-      </div>
+                    <!-- Universities and Research Institutions -->
+                    <div class="border border-secondary p-8 rounded-lg hover:border-primary transition space-y-4">
+                        <h3 class="heading text-xl uppercase text-primary">Universities & research institutions</h3>
+                        <p class="text-sm leading-relaxed text-secondary">
+                            We are seeking institutional partnerships with European universities and
+                            research centres. If your institution works on topics related to our research
+                            agenda, we are open to discussing collaboration.
+                        </p>
+                        <p class="text-sm leading-relaxed text-secondary">
+                            We can explore memoranda of understanding, joint research initiatives, and
+                            student exchange arrangements.
+                        </p>
+                        <a
+                            href="/contact"
+                            class="inline-block text-primary font-semibold uppercase text-xs hover:underline"
+                        >
+                            Contact us about institutional partnerships →
+                        </a>
+                    </div>
 
-      <div class="border rounded-lg p-8 flex flex-col gap-4" style="border-color: var(--color-line); background: color-mix(in srgb, var(--color-background-soft) 90%, black 10%);">
-        <p class="mb-3 text-xs font-semibold uppercase tracking-widest" style="color: var(--color-muted);">For journalists</p>
-        <h3>Press & media</h3>
-        <p style="color:var(--mono-muted); font-size:var(--text-sm);">
-          We are available for expert comment, technical explanation, and
-          background briefings on synthetic media, deepfakes, and digital
-          provenance. We offer:
-        </p>
-        <ul>
-          <li>On-record expert comment for articles and broadcasts</li>
-          <li>Technical explainers for non-specialist audiences</li>
-          <li>Fact-checking assistance on specific cases</li>
-          <li>Regular press briefings as publications emerge</li>
-        </ul>
-        <a href="mailto:press@realityfoundation.eu" class="btn btn-primary"
-          >Press enquiries</a
-        >
-      </div>
+                    <!-- Journalists and Media Organisations -->
+                    <div class="border border-secondary p-8 rounded-lg hover:border-primary transition space-y-4">
+                        <h3 class="heading text-xl uppercase text-primary">Journalists & media organisations</h3>
+                        <p class="text-sm leading-relaxed text-secondary">
+                            Our research is designed to be useful to journalists and newsrooms grappling
+                            with the challenge of synthetic media. We are available for comment, background
+                            briefings, and longer-form collaborations.
+                        </p>
+                        <p class="text-sm leading-relaxed text-secondary">
+                            We can support investigations related to AI counterfeiting and media integrity.
+                        </p>
+                        <a
+                            href="/contact"
+                            class="inline-block text-primary font-semibold uppercase text-xs hover:underline"
+                        >
+                            Press enquiries →
+                        </a>
+                    </div>
+
+                    <!-- Donors and Supporters -->
+                    <div class="border border-secondary p-8 rounded-lg hover:border-primary transition space-y-4">
+                        <h3 class="heading text-xl uppercase text-primary">Donors & supporters</h3>
+                        <p class="text-sm leading-relaxed text-secondary">
+                            As a nonprofit, RealityFoundation depends on the support of individuals and
+                            organisations who share our conviction that media authenticity is a public
+                            good worth defending.
+                        </p>
+                        <p class="text-sm leading-relaxed text-secondary">
+                            If you are interested in supporting our work financially, we would welcome
+                            a conversation about how you can make an impact.
+                        </p>
+                        <a
+                            href="/contact"
+                            class="inline-block text-primary font-semibold uppercase text-xs hover:underline"
+                        >
+                            Get in touch →
+                        </a>
+                    </div>
+
+                    <!-- Institutions and Policymakers -->
+                    <div class="border border-secondary p-8 rounded-lg hover:border-primary transition space-y-4">
+                        <h3 class="heading text-xl uppercase text-primary">Institutions & policymakers</h3>
+                        <p class="text-sm leading-relaxed text-secondary">
+                            We engage actively with public institutions, regulators, and civil society
+                            organisations working on AI governance and digital rights.
+                        </p>
+                        <p class="text-sm leading-relaxed text-secondary">
+                            If you are involved in policy work in this space and would like to explore
+                            collaboration or commission research, please reach out.
+                        </p>
+                        <a
+                            href="/contact"
+                            class="inline-block text-primary font-semibold uppercase text-xs hover:underline"
+                        >
+                            Contact us →
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Join Section -->
+            <section class="space-y-8 border-t border-secondary pt-12">
+                <h2 class="heading text-4xl uppercase">Why contribute?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="space-y-3">
+                        <h3 class="heading text-lg uppercase">Research impact</h3>
+                        <p class="text-sm leading-relaxed text-secondary">
+                            Be part of an independent foundation addressing one of the most urgent
+                            technical and social challenges of our time.
+                        </p>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="heading text-lg uppercase">Policy influence</h3>
+                        <p class="text-sm leading-relaxed text-secondary">
+                            Your work reaches policymakers, regulators, and institutions who shape
+                            the future of AI governance and digital rights.
+                        </p>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="heading text-lg uppercase">Community</h3>
+                        <p class="text-sm leading-relaxed text-secondary">
+                            Join a network of researchers, practitioners, and thought leaders committed
+                            to media authenticity and AI integrity.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="space-y-8 border-t border-secondary pt-12">
+                <div class="max-w-3xl space-y-4">
+                    <h2 class="heading text-3xl uppercase">Ready to get involved?</h2>
+                    <p class="text-lg leading-relaxed text-secondary">
+                        Reach out to learn more about opportunities that match your background and
+                        interests. We respond to all inquiries.
+                    </p>
+                    <div>
+                        <a
+                            href="/contact"
+                            class="inline-block px-6 py-3 border border-primary text-primary font-semibold uppercase hover:bg-primary hover:text-black transition"
+                        >
+                            Contact us
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
-  </section>
-
-  <hr class="border-none border-t my-8" style="border-color: var(--color-line);" />
-
-  <!-- Industry partners -->
-  <section class="mb-16">
-    <div class="mb-8">
-      <h2>Industry & Institutional Partners</h2>
-      <p>
-        We work with organisations that can contribute data, funding, or domain
-        expertise to the research programme — on terms that preserve our
-        independence.
-      </p>
-    </div>
-    <div class="max-w-3xl">
-      <p>
-        If your organisation handles digital media at scale — insurers, media
-        publishers, legal firms, platform operators — you may have datasets or
-        operational experience that would advance our research. In return, you
-        gain early access to findings, acknowledgement in publications, and the
-        ability to shape research questions.
-      </p>
-      <p>
-        <strong>We do not accept funding that conditions our findings.</strong> All
-        partnership terms are published in our annual report. Independence is non-negotiable.
-      </p>
-    </div>
-    <div style="margin-top:var(--space-6)">
-      <a href="mailto:partnerships@realityfoundation.eu" class="btn btn-primary"
-        >Discuss a partnership</a
-      >
-    </div>
-  </section>
-
-  <hr class="border-none border-t my-8" style="border-color: var(--color-line);" />
-
-  <!-- Newsletter -->
-  <section class="mb-16">
-    <div class="panel" style="max-width:540px;">
-      <p class="mb-3 text-xs font-semibold uppercase tracking-widest" style="color: var(--color-muted);">Stay informed</p>
-      <h2
-        style="font-size:var(--text-lg); letter-spacing:0.04em; text-transform:uppercase; margin-bottom:var(--space-3);"
-      >
-        Research updates
-      </h2>
-      <p
-        style="color:var(--mono-muted); font-size:var(--text-sm); margin-bottom:var(--space-6);"
-      >
-        We send infrequent emails when new publications, blog posts, or
-        significant research milestones are reached. No noise.
-      </p>
-      <form
-        style="display:flex; gap:var(--space-3); flex-wrap:wrap;"
-        onsubmit="handleSignup(event)"
-      >
-        <input
-          type="email"
-          placeholder="your@institution.edu"
-          required
-          style="flex:1; min-width:200px; background:var(--mono-bg); border:1px solid var(--mono-line); border-radius:var(--radius-md); padding:0.55rem 0.9rem; color:var(--mono-text); font-size:var(--text-sm); outline:none;"
-          onfocus="this.style.borderColor='#555'"
-          onblur="this.style.borderColor='var(--mono-line)'"
-        />
-        <button type="submit" class="btn btn-primary">Subscribe</button>
-      </form>
-      <p
-        id="signup-msg"
-        style="font-size:var(--text-xs); color:var(--mono-muted); margin-top:var(--space-3); display:none;"
-      >
-        Thanks — we will be in touch when there is something worth reading.
-      </p>
-    </div>
-  </section>
-
-  <script>
-    function handleSignup(e) {
-      e.preventDefault();
-      e.target.style.display = "none";
-      document.getElementById("signup-msg").style.display = "block";
-    }
-  </script>
-</BaseLayout>
+</Layout>
