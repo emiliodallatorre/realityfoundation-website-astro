@@ -24,6 +24,14 @@ const { title, active } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <title>{title}</title>
+    <script>
+      const theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+      window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+        const newTheme = e.matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+      });
+    </script>
   </head>
   <body>
     <div class="site-shell">

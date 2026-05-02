@@ -1,4 +1,5 @@
 :root {
+  /* Default: Dark theme */
   --mono-bg: #0a0a0a;
   --mono-bg-soft: #111111;
   --mono-line: #2a2a2a;
@@ -35,6 +36,17 @@
   --transition: 160ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Light theme */
+html[data-theme="light"] {
+  --mono-bg: #fafafa;
+  --mono-bg-soft: #f5f5f5;
+  --mono-line: #e0e0e0;
+  --mono-text: #1a1a1a;
+  --mono-muted: #666666;
+  --mono-accent: #000000;
+  --mono-glow: rgba(0, 0, 0, 0.08);
+}
+
 *,
 *::before,
 *::after {
@@ -61,6 +73,14 @@ body {
   font-size: var(--text-base);
   line-height: 1.7;
   min-height: 100dvh;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+html[data-theme="light"] body {
+  background:
+    radial-gradient(circle at 18% 8%, rgba(0, 0, 0, 0.03), transparent 36%),
+    radial-gradient(circle at 82% 88%, rgba(0, 0, 0, 0.01), transparent 40%),
+    var(--mono-bg);
 }
 
 img,
@@ -118,6 +138,10 @@ button {
   outline: 1px solid rgba(255, 255, 255, 0.5);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
+}
+
+html[data-theme="light"] :focus-visible {
+  outline: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -202,6 +226,10 @@ button {
   color: var(--mono-text);
   border-color: #666;
   box-shadow: 0 0 0 1px var(--mono-glow) inset;
+}
+
+html[data-theme="light"] .main-nav a.active {
+  border-color: #ccc;
 }
 
 .nav-toggle {
@@ -319,6 +347,10 @@ button {
   border-color: #555;
 }
 
+html[data-theme="light"] .btn:hover {
+  border-color: #aaa;
+}
+
 .btn-primary {
   border-color: rgba(255, 255, 255, 0.3);
   color: var(--mono-text);
@@ -329,6 +361,16 @@ button {
   background: rgba(255, 255, 255, 0.09);
   border-color: rgba(255, 255, 255, 0.5);
   color: var(--mono-accent);
+}
+
+html[data-theme="light"] .btn-primary {
+  border-color: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+html[data-theme="light"] .btn-primary:hover {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.4);
 }
 
 /* ── Hero ── */
@@ -422,6 +464,11 @@ button {
 .card:hover {
   border-color: #444;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+html[data-theme="light"] .card:hover {
+  border-color: #d0d0d0;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
 }
 
 .card.eu:hover {
@@ -587,6 +634,11 @@ button {
   color: var(--mono-text);
   border-left-color: rgba(255, 255, 255, 0.3);
   background: rgba(255, 255, 255, 0.03);
+}
+
+html[data-theme="light"] .aside-nav a.active {
+  border-left-color: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.04);
 }
 
 /* ── Empty state ── */
