@@ -9,8 +9,21 @@ export default {
       colors: {
         bg: 'var(--color-background)',
         fg: 'var(--color-foreground)',
+        background: 'var(--color-background)',
+        foreground: 'var(--color-foreground)',
         primary: 'var(--color-primary)',
         secondary: 'var(--color-secondary)',
+        'button-text': 'var(--color-button-text)',
+        'light-grey': 'var(--color-light-grey)',
+      },
+      backgroundColor: {
+        background: 'var(--color-background)',
+        'light-grey': 'var(--color-light-grey)',
+      },
+      textColor: {
+        foreground: 'var(--color-foreground)',
+        secondary: 'var(--color-secondary)',
+        'button-text': 'var(--color-button-text)',
       },
       fontSize: {
         xs: 'clamp(0.8rem, 0.7rem + 0.25vw, 0.875rem)',

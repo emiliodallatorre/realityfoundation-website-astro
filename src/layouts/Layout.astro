@@ -18,16 +18,16 @@ const { title, description } = Astro.props;
 <!doctype html>
 <html lang="en">
     <Head title={`${title} | ${SITE.TITLE}`} description={description} />
-    <body>
+    <body class="bg-background dark:bg-background">
+        <script is:inline>
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.classList.add("dark");
+            }
+        </script>
         <Header />
         <div class="min-h-screen w-full relative">
             <div
-                class="fixed inset-0 -z-50 bg-background"
-                style={{
-                    backgroundImage:
-                        "radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.10) 1px, transparent 0)",
-                    backgroundSize: "25px 25px",
-                }}
+                class="fixed inset-0 -z-50 bg-background dark:bg-background dot-pattern"
             >
             </div>
             <slot />
@@ -35,3 +35,16 @@ const { title, description } = Astro.props;
         <Footer />
     </body>
 </html>
+
+<style>
+    .dot-pattern {
+        background-image: radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.1) 1px, transparent 0);
+        background-size: 25px 25px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .dot-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.1) 1px, transparent 0);
+        }
+    }
+</style>

@@ -2,16 +2,39 @@
 
 @plugin '@tailwindcss/typography';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* light mode colors */
+  --color-primary: #27FF0B;
+  --color-background: #fefefe;
+  --color-foreground: #000000;
+  --color-secondary: #434343;
+  --color-button-text: #333333;
+  --color-light-grey: #f5f5f5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* dark mode colors */
+    --color-primary: #27FF0B;
+    --color-background: #1a1a1a;
+    --color-foreground: #fefefe;
+    --color-secondary: #999999;
+    --color-button-text: #333333;
+    --color-light-grey: #2a2a2a;
+  }
+}
+
 @theme {
-  /* fonts */
   --font-plex: "IBM Plex Mono", monospace;
   --font-geist: "Geist", sans-serif;
-
-  /* colors */
-  --color-primary: oklch(86.89 0.29 142.02); /* #27FF0B*/
-  --color-background: oklch(99.7 0 0); /* #fefefe */
-  --color-foreground: oklch(0 0 0); /* #000000 */
-  --color-secondary: oklch(0.38 0 1); /* #434343*/
+  --color-primary: var(--color-primary);
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-secondary: var(--color-secondary);
+  --color-button-text: var(--color-button-text);
+  --color-light-grey: var(--color-light-grey);
 }
 
 .heading {
