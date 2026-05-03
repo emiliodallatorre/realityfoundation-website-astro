@@ -54,3 +54,19 @@ article {
   @apply prose-headings:font-bold prose-headings:font-plex prose-headings:text-foreground mx-auto;
   @apply text-secondary prose-a:underline-offset-2;
 }
+
+.btn-primary {
+  @apply bg-primary text-button-text rounded-2xl px-6 py-3 sm:px-10 sm:py-4 cursor-pointer transition;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-background);
+  color: var(--color-button-text);
+  outline: 1px dashed var(--color-secondary);
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn-primary:hover {
+    color: var(--color-foreground);
+  }
+}
