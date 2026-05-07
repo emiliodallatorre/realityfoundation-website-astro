@@ -3,12 +3,12 @@ export const SITE = {
   MONOGRAM: "RF",
   TITLE: "RealityFoundation",
   DESCRIPTION:
-    "Research for a verifiable world. We study the boundaries between authentic and synthetic media and build the academic infrastructure to defend them.",
+    "Establishing Ground Truth in the Age of AI. We study the boundaries between authentic and synthetic media and build the academic infrastructure to defend them.",
   EMAIL: "hello@realityfoundation.eu",
 };
 
 export const HOME = {
-  TITLE: "RealityFoundation - Research for a verifiable world",
+  TITLE: "RealityFoundation - Establishing Ground Truth in the Age of AI",
   DESCRIPTION:
     "We study the boundaries between authentic and synthetic media — and build the academic infrastructure to defend them.",
 };
