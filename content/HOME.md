@@ -1,4 +1,4 @@
-# Research for a verifiable world
+# Establishing Ground Truth in the Age of AI
 
 We study the boundaries between authentic and synthetic media — and build the academic infrastructure to defend them. Our work underpins the tools, policies, and standards needed to restore trust in visual evidence.
 
