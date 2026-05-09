@@ -15,7 +15,8 @@
   --color-background: #fefefe;
   --color-foreground: var(--graphite);
   --color-secondary: var(--graphite);
-  --color-button-text: var(--graphite);
+  --color-button-text: #fefefe;
+  --color-button-text-hover: var(--graphite);
   --color-light-grey: #f5f5f5;
 }
 
@@ -32,6 +33,7 @@
     --color-foreground: #fefefe;
     --color-secondary: #999999;
     --color-button-text: #fefefe;
+    --color-button-text-hover: #fefefe;
     --color-light-grey: #2a2a2a;
   }
 }
@@ -71,12 +73,6 @@ article {
 
 .btn-primary:hover {
   background-color: var(--color-background);
-  color: var(--color-button-text);
+  color: var(--color-button-text-hover);
   outline: 1px dashed var(--color-secondary);
-}
-
-@media (prefers-color-scheme: dark) {
-  .btn-primary:hover {
-    color: var(--color-foreground);
-  }
 }
