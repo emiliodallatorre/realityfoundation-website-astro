@@ -1,0 +1,397 @@
+---
+type Status   = "done" | "current" | "upcoming";
+type Category = "product" | "funding" | "gtm" | "company";
+
+interface Milestone {
+  date:     string;
+  title:    string;
+  category: Category;
+  status:   Status;
+  today?:   boolean;
+}
+
+const milestones: Milestone[] = [
+  { date: "Feb. 2025",       title: "Ideation",                              category: "company", status: "done"    },
+  { date: "Jun. 2025",       title: "Company foundation",                    category: "company", status: "done"    },
+  { date: "Dec. 2025",       title: "Prototype finalization",                category: "product", status: "done"    },
+  { date: "Jan.–Aug. 2026",  title: "Market research & customer interviews", category: "gtm",     status: "current" },
+  { date: "May 2026",        title: "Seed round",                            category: "funding", status: "done"    },
+  { date: "Jun. 2026",       title: "Digital 28 selection",                  category: "funding", status: "current", today: true },
+  { date: "Sep. 2026",       title: "MVP launch",                            category: "product", status: "upcoming"},
+  { date: "Oct.–Dec. 2026",  title: "Pre-sales",                             category: "gtm",     status: "upcoming"},
+  { date: "Jan. 2027",       title: "Product go-live",                       category: "product", status: "upcoming"},
+  { date: "Feb. 2027",       title: "Commercial launch",                     category: "gtm",     status: "upcoming"},
+];
+
+const LABELS: Record<Category, string> = {
+  product: "Product",
+  funding: "Funding",
+  gtm:     "GTM",
+  company: "Company",
+};
+---
+
+<div class="rt-root">
+
+  <!-- Legend: colour never the only differentiator — text labels present -->
+  <ul class="rt-legend" aria-label="Category legend">
+    {(["product","funding","gtm","company"] as Category[]).map(cat => (
+      <li>
+        <span class={`rt-dot rt-dot--${cat}`} aria-hidden="true"></span>
+        {LABELS[cat]}
+      </li>
+    ))}
+  </ul>
+
+  <!-- Timeline track -->
+  <div class="rt-track-wrap">
+    <!-- Decorative connecting line (aria-hidden via CSS pointer-events:none + role=presentation on wrapping div) -->
+    <div class="rt-line" aria-hidden="true"></div>
+
+    <ol class="rt-list">
+      {milestones.map((m, i) => (
+        <li class={`rt-item rt-cat--${m.category} rt-status--${m.status}${m.today ? " rt-today" : ""}`}>
+
+          <!-- Node sits on the connecting line -->
+          <div class="rt-node-wrap" aria-hidden="true">
+            <div class="rt-node"></div>
+          </div>
+
+          <!-- Content card: mobile = right of node; desktop = absolute above/below -->
+          <div class="rt-card">
+            {m.today && <span class="rt-today-flag">▲ Today</span>}
+            <time class="rt-date">{m.date}</time>
+            <p class="rt-title">{m.title}</p>
+            <span class="rt-tag">{LABELS[m.category]}</span>
+          </div>
+
+        </li>
+      ))}
+    </ol>
+  </div>
+
+</div>
+
+<style>
+  /* ─────────────────────────────────────────────
+     Category colour tokens — scoped to .rt-root
+     --rt-gtm: teal; no token in :root — fallback hex (same as Annotation component)
+  ───────────────────────────────────────────── */
+  .rt-root {
+    --rt-product: var(--slate-blue);      /* #6665ddff, purple  — existing token */
+    --rt-funding: var(--color-primary);   /* #d90368ff, magenta — existing token */
+    --rt-gtm:    #0d9488;                 /* teal — no matching :root token; fallback hex */
+    --rt-company: var(--color-secondary); /* graphite neutral   — existing token */
+  }
+
+  /* Bind category class → local --rt-color */
+  .rt-cat--product { --rt-color: var(--rt-product); }
+  .rt-cat--funding { --rt-color: var(--rt-funding); }
+  .rt-cat--gtm     { --rt-color: var(--rt-gtm);     }
+  .rt-cat--company { --rt-color: var(--rt-company);  }
+
+  /* ── Legend ── */
+  .rt-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    font-family: var(--font-geist);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-secondary);
+  }
+  .rt-legend li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .rt-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .rt-dot--product { background: var(--rt-product); }
+  .rt-dot--funding { background: var(--rt-funding); }
+  .rt-dot--gtm     { background: var(--rt-gtm);     }
+  .rt-dot--company { background: var(--rt-company);  }
+
+  /* ── Track wrapper ── */
+  .rt-track-wrap {
+    position: relative;
+  }
+
+  /* ── Connecting line ── */
+  .rt-line {
+    position: absolute;
+    /* Mobile: vertical, aligned with node center (node-wrap = 22px, so 11px) */
+    left: 10px;
+    top: 8px; bottom: 8px;
+    width: 2px;
+    background: var(--color-secondary);
+    opacity: 0.18;
+    pointer-events: none;
+    border-radius: 1px;
+  }
+
+  /* ── List ── */
+  .rt-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+
+  /* ── Milestone item — mobile (default) ── */
+  .rt-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.6rem 0;
+    position: relative;
+  }
+
+  /* ── Node ── */
+  .rt-node-wrap {
+    flex-shrink: 0;
+    width: 22px;
+    display: flex;
+    justify-content: center;
+    padding-top: 3px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .rt-node {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--rt-color, var(--color-secondary));
+    background: transparent;
+    position: relative;
+    transition: background 0.3s;
+    flex-shrink: 0;
+  }
+
+  /* Done: filled */
+  .rt-status--done .rt-node {
+    background: var(--rt-color);
+  }
+  /* Current: filled */
+  .rt-status--current .rt-node {
+    background: var(--rt-color);
+  }
+  /* Upcoming: hollow + dimmed */
+  .rt-status--upcoming .rt-node {
+    opacity: 0.45;
+  }
+  .rt-status--upcoming .rt-card {
+    opacity: 0.55;
+  }
+
+  /* Today pulse ring */
+  .rt-today .rt-node::after {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 2px solid var(--rt-color);
+    animation: rt-pulse 2s ease-in-out infinite;
+  }
+  @keyframes rt-pulse {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50%       { opacity: 0;   transform: scale(1.6); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rt-today .rt-node::after { animation: none; opacity: 0.4; }
+  }
+
+  /* ── Card content ── */
+  .rt-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding-top: 1px;
+  }
+
+  .rt-today-flag {
+    font-family: var(--font-geist);
+    font-size: 0.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--rt-color);
+    margin: 0 0 0.2rem;
+  }
+
+  .rt-date {
+    display: block;
+    font-family: var(--font-geist);
+    font-size: 0.625rem;
+    color: var(--color-secondary);
+    letter-spacing: 0.03em;
+  }
+
+  .rt-title {
+    font-family: var(--font-plex);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--color-foreground);
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .rt-tag {
+    display: inline-block;
+    font-family: var(--font-geist);
+    font-size: 0.5625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--rt-color);
+    border: 1px solid var(--rt-color);
+    border-radius: 9999px;
+    padding: 0.1rem 0.45rem;
+    margin-top: 0.1rem;
+    width: fit-content;
+  }
+
+  /* ═══════════════════════════════════════════
+     Desktop: horizontal alternating timeline
+     ≥ 1024px (lg)
+  ═══════════════════════════════════════════ */
+  @media (min-width: 1024px) {
+
+    /* Connecting line: horizontal through the middle */
+    .rt-line {
+      left: 0;
+      right: 0;
+      top: 50%;
+      bottom: auto;
+      width: auto;
+      height: 2px;
+      transform: translateY(-50%);
+    }
+
+    /* List becomes a horizontal flex row */
+    .rt-list {
+      flex-direction: row;
+      height: 280px;
+      align-items: stretch;
+    }
+
+    /* Each item takes equal width, uses absolute positioning internally */
+    .rt-item {
+      flex: 1;
+      display: block;
+      position: relative;
+      padding: 0;
+      height: 100%;
+    }
+
+    /* Node centered on the line */
+    .rt-node-wrap {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: auto;
+      padding: 0;
+      z-index: 2;
+    }
+
+    .rt-node {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Card: centered horizontally, alternates above / below the line */
+    .rt-card {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      width: 100px;
+      word-break: break-word;
+      gap: 0.2rem;
+    }
+
+    /* Odd items (1st, 3rd, …): content ABOVE the line */
+    .rt-item:nth-child(odd) .rt-card {
+      bottom: calc(50% + 20px);
+      top: auto;
+    }
+
+    /* Even items (2nd, 4th, …): content BELOW the line */
+    .rt-item:nth-child(even) .rt-card {
+      top: calc(50% + 20px);
+      bottom: auto;
+    }
+
+    .rt-tag {
+      margin: 0.15rem auto 0;
+    }
+
+    .rt-today-flag {
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  // Staggered scroll-reveal via IntersectionObserver.
+  // Items start hidden ONLY when prefers-reduced-motion is NOT set —
+  // content is always readable (no reliance on JS for visibility).
+  (() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const items = Array.from(document.querySelectorAll(".rt-item"));
+
+    // Initially hide items (JS-only; HTML/CSS alone keeps them visible)
+    items.forEach((el) => {
+      el.classList.add("rt-reveal-hidden");
+    });
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const idx = items.indexOf(entry.target);
+          setTimeout(() => {
+            entry.target.classList.remove("rt-reveal-hidden");
+            entry.target.classList.add("rt-reveal-shown");
+          }, idx * 70);
+          io.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    items.forEach((el) => io.observe(el));
+  })();
+</script>
+
+<!-- Reveal animation classes injected by JS; scoped via is:global not needed
+     since these are added dynamically and not in the template -->
+<style is:global>
+  .rt-reveal-hidden {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: none;
+  }
+  .rt-reveal-shown {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+</style>
